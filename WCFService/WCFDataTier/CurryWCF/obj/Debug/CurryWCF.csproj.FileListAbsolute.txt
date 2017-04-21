@@ -1,0 +1,10 @@
+C:\Users\david_2\Documents\CurryCounty\_Application\CurryWCF\CurryWCF\CurryWCF\bin\CurryWCF.dll
+C:\Users\david_2\Documents\CurryCounty\_Application\CurryWCF\CurryWCF\CurryWCF\bin\CurryWCF.pdb
+C:\Users\david_2\Documents\CurryCounty\_Application\CurryWCF\CurryWCF\CurryWCF\obj\Debug\CurryWCF.dll
+C:\Users\david_2\Documents\CurryCounty\_Application\CurryWCF\CurryWCF\CurryWCF\obj\Debug\CurryWCF.pdb
+E:\_returnHome\1_15_2015\CurryWCF\CurryWCF\bin\CurryWCF.dll
+E:\_returnHome\1_15_2015\CurryWCF\CurryWCF\bin\CurryWCF.pdb
+E:\_returnHome\1_15_2015\CurryWCF\CurryWCF\obj\Debug\CurryWCF.dll
+E:\_returnHome\1_15_2015\CurryWCF\CurryWCF\obj\Debug\CurryWCF.pdb
+C:\Users\david_2\Documents\CurryCounty\_Application\CurryWCF\CurryWCF\CurryWCF\bin\CurryWCF.dll.config
+C:\Users\david_2\Documents\CurryCounty\_Application\CurryWCF\CurryWCF\CurryWCF\obj\Debug\CurryWCF.csprojResolveAssemblyReference.cache

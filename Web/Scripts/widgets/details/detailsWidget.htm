@@ -1,0 +1,66 @@
+﻿<div>
+    <style>
+        .detailsBox {
+            background-color: #CCCCCC; 
+            border: 2px solid black; 
+            width: 80%; 
+            margin-left: 30px; 
+            margin-top: 10px; 
+            margin-bottom: 10px; 
+            padding: 4px;
+        }
+
+        .copyButton 
+        {
+            font-size: 14px;
+            font-weight:bolder;
+            color: #023670;
+            margin-left:160px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .backButton 
+        {
+            font-size: 14px;
+            font-weight:bolder;
+            color: #023670;
+            margin-left:20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
+        .backButtonHover {
+            font-size: 14px;
+            font-weight:bolder;
+            color: #023670;
+            margin-left:20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-decoration: underline;
+            cursor: hand;
+        }
+    </style>
+    <div style="margin-top: 10px; margin-bottom: 10px;">
+    <span dojo-attach-point="backBtn" class="backButton"  data-dojo-attach-event="ondijitclick:_resultsBackClick, onmouseover:_resultsBackMouseOver, onmouseout:_resultsBackMouseOut" >back</span>  
+        <!-- span id="resultCopy" class="copyButton">copy<img src="Images/clipboard.png" /></span -->
+    </div>
+
+    <div class="detailsBox" id="dvAssess" data-dojo-attach-point="AssessmentInfo"></div>
+    <!--div class="detailsBox" id="dvOwner" data-dojo-attach-point="OwnerInfo"></div -->
+    <!--div class="detailsBox" id="dvSitus" data-dojo-attach-point="SitusInfo"></div -->
+    <div class="detailsBox" id="dvCode" data-dojo-attach-point="CodeInfo"></div>
+    <div class="detailsBox" id="dvDeed" data-dojo-attach-point="DeedInfo"></div>
+    <div class="detailsBox" id="dvOwnerHistory" data-dojo-attach-point="OwnerHistoryInfo"></div>
+    <!-- div class="detailsBox" id="dvSale" data-dojo-attach-point="SaleInfo"></div -->
+    <!--div class="detailsBox" id="dvTax" data-dojo-attach-point="TaxInfo"></div -->
+
+
+</div>
+
+

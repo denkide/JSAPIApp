@@ -1,0 +1,321 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Print a Map</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="http://js.arcgis.com/3.11/dijit/themes/soria/soria.css">
+  <link rel="stylesheet" href="http://js.arcgis.com/3.11/esri/css/esri.css">
+
+  <style>
+    html,
+    body,
+    #mapDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      z-index: 0;
+    }
+    /* Printer CSS Begin */
+    h3 {
+      margin: 0 0 5px 0;
+      border-bottom: 1px solid #444;
+      padding: 0 0 5px 0;
+      text-align: center;
+    }
+    .shadow {
+      -moz-box-shadow: 0 0 5px #888;
+      -webkit-box-shadow: 0 0 5px #888;
+      box-shadow: 0 0 5px #888;
+    }
+    #feedback {
+      background: #fff;
+      border: 2px solid #666;
+      border-radius: 5px;
+      bottom: 20px;
+      color: #666;
+      font-family: arial;
+      height: auto;
+      left: 20px;
+      margin: 5px;
+      padding: 10px;
+      position: absolute;
+      width: 300px;
+      z-index: 40;
+      visibility: hidden;
+    }
+    #feedback a {
+      /*border-bottom: 1px solid #888;*/
+      color: #666;
+      text-decoration: none;
+    }
+    #feedback a:hover,
+    #feedback a:active,
+    #feedback a:visited {
+      border: none;
+      color: #666;
+      text-decoration: none;
+    }
+    #note {
+      padding: 0 0 10px 0;
+    }
+    #info,
+    #information {
+      padding: 10px 0 0 0;
+    }
+    /* Printer CSS End */
+    #showTools {
+      height: 20px;
+      width: 20px;
+      position: absolute;
+      top: 200px;
+      left: 20px;
+      z-index: 50;
+      padding: 5px 6px 5px 6px;
+      background-color: #f9f8f8;
+      border-radius: 5px;
+      visibility: visible;
+    }
+    #hideTools {
+      height: 20px;
+      width: 20px;
+      position: absolute;
+      top: 200px;
+      left: 20px;
+      z-index: 50;
+      padding: 5px 6px 5px 6px;
+      background-color: #f9f8f8;
+      border-radius: 5px;
+      visibility: hidden;
+    }
+    #printer {
+      height: 20px;
+      width: 20px;
+      position: absolute;
+      top: 240px;
+      left: 20px;
+      z-index: 50;
+      padding: 5px 6px 5px 6px;
+      background-color: #f9f8f8;
+      border-radius: 5px;
+      visibility: hidden;
+    }
+  </style>
+
+  <script src="http://js.arcgis.com/3.11/"></script>
+
+  <script>
+      var app = {};
+      require(["esri/map", "esri/config",
+             "esri/tasks/PrintTask",
+             "esri/tasks/PrintParameters",
+             "esri/geometry/Extent",
+             "esri/layers/ArcGISDynamicMapServiceLayer",
+             "esri/layers/ArcGISTiledMapServiceLayer",
+             "esri/layers/FeatureLayer",
+             "esri/tasks/GeometryService",
+             "esri/tasks/PrintTemplate",
+             "dojo/_base/array",
+             "dojo/dom",
+             "dojo/on",
+             "dojo/parser",
+             "dijit/layout/BorderContainer",
+             "dijit/layout/ContentPane",
+             "dojo/domReady!"], function (Map, esriConfig, PrintTask, PrintParameters, Extent,
+      ArcGISDynamicMapServiceLayer, ArcGISTiledMapServiceLayer,
+      FeatureLayer, GeometryService, PrintTemplate, arrayUtils, dom, on, parser
+
+    ) {
+                 parser.parse();
+
+                 /* The proxy comes before all references to web services */
+                 /* Files required for security are proxy.config, web.config and proxy.ashx
+                 - set security in Manager to Private, available to selected users and select Allow access to all users who are logged in
+                 (Roles are not required)
+                 /*
+
+                 The proxy section is defined on the ESRI sample. I have included it as
+                 part of the documentation reads that the measuring will not work.
+                 I thought that might be important.
+                 */
+
+                 // Proxy Definition Begin
+                 //identify proxy page to use if the toJson payload to the geometry service is greater than 2000 characters.
+                 //If this null or not available the project and lengths operation will not work.
+                 // Otherwise it will do a http post to the proxy.
+                 esriConfig.defaults.io.proxyUrl = "proxy.ashx";
+                 esriConfig.defaults.io.alwaysUseProxy = false;
+                 // Proxy Definition End
+
+                 // set custom extent
+                 var initialExtent = new Extent({
+                     "xmin": 777229.03,
+                     "ymin": 1133467.92,
+                     "xmax": 848340.14,
+                     "ymax": 1185634.58,
+                     "spatialReference": {
+                         "wkid": 3435
+                     }
+                 });
+
+                 // create map and set slider style to small
+                 var map = new Map("mapDiv", {
+                     showAttribution: false,
+                     sliderStyle: "small",
+                     extent: initialExtent
+                 });
+
+                 // add imagery
+                 var tiled = new ArcGISTiledMapServiceLayer("http://www.currymap.org/arcgis/rest/services/Basemaps/Street_Basemap/MapServer");
+                 map.addLayer(tiled);
+
+                 // set operational layers
+                 var operationalLayer = new ArcGISDynamicMapServiceLayer("http://www.currymap.org/arcgis/rest/services/Boundaries_and_Districts/MapServer", {
+                     "opacity": 0.5
+                 });
+
+                 // add operational layers
+                 map.addLayer(operationalLayer);
+
+                 // declare geometry service
+                 esriConfig.defaults.geometryService = new GeometryService("http://www.currymap.org/arcgis/rest/services/Utilities/Geometry/GeometryServer");
+
+                 // begin print Task
+                 app.printUrl = "http://www.currymap.org/arcgis/rest/services/Utilities/PrintingTools/GPServer/Export%20Web%20Map%20Task";
+
+                 function createPrintTask(printTitle) {
+                     var template = new PrintTemplate();
+                     template.layout = document.getElementById("printLayoutId").value;
+                     template.label = "Landscape (PDF)";
+                     template.format = document.getElementById("printFormatId").value;
+                     template.layoutOptions = {
+                         legendLayers: [], // empty array means no legend
+                         scalebarUnit: "Miles",
+                         titleText: printTitle
+                     };
+
+                     var params = new PrintParameters();
+                     params.map = map;
+                     params.template = template;
+
+                     var printTask = new PrintTask(app.printUrl);
+                     var printObj = {
+                         printTask: printTask,
+                         params: params
+                     }
+                     return printObj;
+                 }
+                 // end of print task
+
+                 // Activates printer
+                 on(dom.byId("btnPrintReady"), "click", function () {
+                     document.getElementById("btnPrintReady").innerHTML = "Printing..."
+                     document.getElementById("btnPrintReady").disabled = true;
+                     var printObj = createPrintTask(document.getElementById("printTitleId").value);
+                     var printTask = printObj.printTask;
+                     printTask.execute(printObj.params, function (evt) {
+                         document.getElementById("btnPrintReady").style.display = 'none';
+                         document.getElementById("printResult").href = evt.url;
+                         document.getElementById("printResult").style.display = 'block';
+                         on(dom.byId("printResult"), "click", function () {
+                             document.getElementById("btnPrintReady").innerHTML = "Print";
+                             document.getElementById("btnPrintReady").style.display = 'block';
+                             document.getElementById("btnPrintReady").disabled = false;
+                             document.getElementById("printResult").style.display = 'none';
+                         });
+                     }, function (evt) {
+                         document.getElementById("btnPrintReady").disabled = false;
+                         document.getElementById("btnPrintReady").innerHTML = "Print";
+                     });
+                 });
+
+                 // Hides print widget
+                 on(dom.byId("closePrint"), "click", function () {
+                     document.getElementById("feedback").style.visibility = 'hidden';
+                 });
+
+                 // Shows tools
+                 on(dom.byId("showTools"), "click", function () {
+                     document.getElementById("showToolsButton").style.visibility = 'hidden';
+                     document.getElementById("hideToolsButton").style.visibility = 'visible';
+                     document.getElementById("printer").style.visibility = 'visible';
+                 });
+
+                 // Hide tools
+                 on(dom.byId("hideTools"), "click", function () {
+                     document.getElementById("showToolsButton").style.visibility = 'visible';
+                     document.getElementById("hideToolsButton").style.visibility = 'hidden';
+                     document.getElementById("printer").style.visibility = 'hidden';
+                     document.getElementById("feedback").style.visibility = 'hidden';
+                 });
+
+                 // Show print widget
+                 on(dom.byId("showPrintWidget"), "click", function () {
+                     document.getElementById("feedback").style.visibility = 'visible';
+                 });
+             });
+  </script>
+</head>
+
+<body class="soria">
+  <!-- Map Div Begin -->
+  <div id="mapDiv">
+    <div id="showTools">
+      <input type="image" id="showToolsButton" src="images/hammer.png" alt="Show Tools" title="Show Tools" />
+    </div>
+    <div id="hideTools">
+      <input type="image" id="hideToolsButton" src="images/close.ico" alt="Hide Tools" title="Hide Tools" />
+    </div>
+    <div id="printer">
+      <input type="image" id="showPrintWidget" src="images/print.ico" alt="Print" title="Print" />
+    </div>
+    <form id="frmPrint" action="" onsubmit="return false;">
+      <div id="feedback">
+        <h3>City of Decatur Print Service</h3>
+        <div id="information">
+          <div id="note">Note: Select the format that you would like to print your map from the dropdowns below.</div>
+          <!-- used for the print dijit -->
+          <label id="lblPrintTitle">Enter a print title</label>
+          <br />
+          <input type="text" id="printTitleId" name="printTitle" value="Street Light Inventory" />
+          <br />
+          <br />
+          <select name="printLayout" id="printLayoutId">
+            <option value="A3 Landscape">A3 Landscape</option>
+            <option value="A3 Portrait">A3 Portrait</option>
+            <option value="A4 Landscape">A4 Landscape</option>
+            <option value="A4 Portrait">A4 Portrait</option>
+            <option value="Letter ANSI A Landscape" selected>Letter ANSI A Landscape</option>
+            <option value="Letter ANSI A Portrait">Letter ANSI A Portrait</option>
+            <option value="Tabloid ANSI B Landscape">Tabloid ANSI B Landscape</option>
+            <option value="Tabloid ANSI B Portrait">Tabloid ANSI B Portrait</option>
+          </select>
+          <select name="printFormat" id="printFormatId">
+            <option value="pdf" selected>PDF</option>
+            <option value="png32">PNG32</option>
+            <option value="png8">PNG8</option>
+            <option value="jpg">JPG</option>
+            <option value="gif">GIF</option>
+            <option value="eps">EPS</option>
+            <option value="svg">SVG</option>
+            <option value="svgz">SVGZ</option>
+          </select>
+          <br />
+          <br />
+          <button type="button" id="btnPrintReady">Print</button>
+          <a href="#" id="printResult" target="_blank" style="display:none;">Get Printout</a>
+          <div id="info">This print service is to be used for City business only.
+            <input type="image" id="closePrint" src="images/close.ico" alt="Close" title="Close" />
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- Map Div End -->
+</body>
+
+</html>

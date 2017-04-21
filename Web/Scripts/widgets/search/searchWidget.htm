@@ -1,0 +1,31 @@
+﻿<div>
+    <div data-dojo-attach-point="containerNode">
+        <!-- Hello <span dojoAttachPoint="nameNode" class="highlightedName"> ${sayHelloTo}</span> -->
+
+        <div align="center">
+            <table width="98%" style="border-spacing: 0px; height:60%;" frame="box">
+                <tr style="background-color: #E1E1E1;height: 30px;">
+                    <td style="font-weight: bold; width: 150px;">
+                        <span style="font-weight: bold;font-size: 14; margin-left: 10px;">Search Type:</span>
+                    </td>
+                    <td>
+                        <span style="font-weight: bold;font-size: 14; margin-left: 40px;">Search for:</span>
+                    </td>
+                </tr>
+                <tr style="border-top: 10px;">
+                    <td style="border-right: 1px black solid;"><input type="radio" name="drink" id="Name" checked value="NameSearch" data-dojo-attach-point="chkName" /><label for="Name">Name</label></td>
+                    <td rowspan="3" style="vertical-align: top;">
+                        <div data-dojo-attach-point="searchWidgetContainer" style="width: 200px; margin-left: 40px;margin-top: 10px;"></div>
+                        <div data-dojo-attach-point="searchExampleContainer" style="margin-left:45px; margin-top: 7px; font-size:11px; font-family: Arial;"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-right: 1px black solid;"><input type="radio" name="drink" id="Address" value="AddressSearch" data-dojo-attach-point="chkAddress" /><label for="Address">Address</label></td>
+                </tr>
+                <tr>
+                    <td style="border-right: 1px black solid;"><input type="radio" name="drink" id="MapTaxlot" value="MapTaxlotSearch" data-dojo-attach-point="chkMaplot" /><label for="MapTaxlot">Map and Taxlot</label></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,514 @@
+ 
+/* -------------------------- */
+/* CSS Type Selectors         */
+/* -------------------------- */
+ 
+html, body, #map {
+height: 100%;
+width: 100%;
+margin: 0;
+padding: 0;
+}
+
+body {
+    background-color: #EDF4DE;
+    overflow: scroll;
+    font-family: "Trebuchet MS";
+    position: relative;
+}
+
+/* 
+a 
+{
+	text-decoration: none;
+	color: #333333;
+}
+
+a:hover 
+{
+	font-size: 1.0em;
+	font-style:italic;
+	color: #F51212;
+}
+*/
+
+
+a.nodeZoom:visited {
+    text-decoration: none;  
+    color: #05375D;
+    font-size: 12px;
+}
+
+a.nodeZoom:hover {
+    text-decoration: underline; 
+    color: Red;
+    font-size: 12px;
+}
+
+a.nodeZoom:active {
+    text-decoration: underline;
+    color: #05375D;
+    font-size: 10px;
+}
+
+a.resultsZoom {
+    text-decoration: none;
+    color: #023670;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+a.resultsZoom:link {
+    text-decoration: none;
+    color: #023670;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+a.resultsZoom:visited {
+    text-decoration: none;  
+    color: #023670;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: default;
+}
+
+a.resultsZoom:hover {
+    text-decoration: underline; 
+    color: Red;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+a.resultsZoom:active {
+    text-decoration: underline;
+    color: Red;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+div.transbox
+{
+    width:400px;
+    height:400px;
+    /* margin: 0px 0px 0px 0px;  */ /*100px 300px 100px 300px; */
+    right: 0px;
+    top: 45px;
+    background-color:#E1E1E1;
+    border:1px solid black;
+    opacity:0.6;
+    filter:alpha(opacity=60); /* For IE8 and earlier */
+    z-index: 500;
+    display: none;
+    position: absolute;
+}
+
+
+
+/* -------------------------- */
+/* CSS ID Selectors           */
+/* -------------------------- */
+
+#map {
+	position: absolute;
+}
+
+
+
+/* -------------------------- */
+/* CSS Classes                */
+/* -------------------------- */
+
+
+.rightTop{
+    float:right;
+    right:0px;
+    top: 5px;
+    width:200px;
+}
+
+.normalText {
+    font-weight: 400;
+    font-size:  .65em;  
+    width: 100px;
+}
+
+
+
+.activeTool {
+    /* background: #D5E6B4; */
+    background: #4A624A;
+    border-left: 3px solid #4A624A;
+    border-bottom: 3px solid #4A624A;
+}
+
+.inactiveTool {
+    /* background: #E1E1E1; */
+    background: #4A624A;
+    border-left: 1px solid #4A624A;
+    border-bottom: 1px solid #4A624A;
+}
+
+.MapPane {
+    position: absolute;
+    background: white; 
+    width: 100%; 
+    height: 100%; 
+    padding: 0; 
+    margin-left: -7px;
+    z-index: 1;
+    overflow: hidden !important;
+    margin-top: -7px;
+    margin-bottom: 0px;
+}
+
+
+.resultsContainer  {
+    width: 23px;
+    /* overflow: auto; */ /* hidden !important; */
+    overflow-x: hidden !important; 
+    overflow-y: auto;
+    right: 6px; 
+    margin-top: -2px;
+    background-color: #DFDDC1; 
+    z-index: 2000; 
+    border: 1px solid black; 
+    display: block;
+    height: 100%;
+    float: right;
+    position: absolute;
+    
+
+    /*
+    position: fixed;
+    height: 87%;
+    
+    */
+}
+
+.resultsDiv 
+{
+    width: 100%;
+    display: none;
+    margin-top: 5px;
+    margin-left: 10px;
+    vertical-align: top;
+    /* background-color: #E8E9D9; */
+}
+
+.resultsTable 
+{
+    margin: 10px 5px 10px 25px;
+    background-color: #E1E1E1;
+    width: 80%;
+    outline:  #023670 solid 2px;
+    padding: 3px;
+}
+
+.resultsText {
+    font-size: 11px;
+    font-weight: 400; 
+    margin-left: 5px;
+}
+
+.resultsTextBold {
+    font-size: 11px;
+    font-weight: 900;
+    /* background-color: #E1E1E1; */
+    margin-bottom: 3px;
+}
+
+.resultsDataTop {
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 13px;
+    font-weight: bolder;
+    background-color: #FFF;
+    cursor: pointer;
+}
+
+.resultsData {
+    font-size: 11px;
+    font-weight: 900;
+    background-color: #E1E1E1;
+    cursor: pointer;
+    margin-bottom: 3px;
+}
+
+
+
+.resultslinks {
+    font-size: 11px;
+    font-weight: bold;
+    background-color: #E1E1E1;
+}
+
+.resultsZoomRow 
+{
+    background-color: #023670;
+}
+
+.topContent 
+{
+    width: 100%; 
+    height: 76px; 
+    position: absolute; 
+    top: 0px; 
+    overflow: hidden; 
+    margin-left: 0px; 
+    left: 0px;
+    background-color: #DFDDC1; /*#023670;*/
+    z-index: 100; 
+    margin-top: 0px;   
+}
+
+.AppTitle2 
+{
+    font-family: Arial, Century;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #023670;
+    background: -webkit-linear-gradient(#777, #0068B1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 7px;
+    top: 0px;
+    height: 40px; 
+    left: 180px; 
+    margin-left: 20px; 
+    position: absolute;
+}
+
+.AppTitle1Container
+{
+    color: #DFDDC1;
+    font-family: Arial, Century;
+    font-size: 1.5em;
+    font-weight: bold;
+    top: 0px;
+    left: 0px; 
+    width: 180px; 
+    height: 40px;
+    background-color: #023670;  /* #BDC8AD; */
+    position: relative; 
+}
+
+.AppTitle1
+{
+    font-family: Arial, Century;
+    font-size: 1.0em;
+    font-weight: 700;
+    color: #DFDDC1;
+    height: 40px;
+    margin-top: 6px;
+    margin-left: 25px; 
+    position: fixed;
+}
+
+.toolbarSearch 
+{
+    right: 133px; 
+    top: 0px; 
+    height: 51px; 
+    width: 133px; 
+    position: absolute; 
+    color: #023670; /*#4A624A; White;*/ 
+    background-color: #BDC8AD; 
+    border: 1px solid #4A624A; 
+    text-align: center;   
+    font-weight: bold;
+}
+
+.toolbarLayers 
+{
+    right: 0px; 
+    top: 0px; 
+    height: 51px; 
+    width: 133px; 
+    position: absolute; 
+    color: #023670; /* #4A624A; White;  */
+    background-color: #BDC8AD; 
+    border: 1px solid #4A624A; 
+    text-align: center;   
+    font-weight: bold;
+}
+
+.layersContainer  {
+    width: 23px;
+    overflow: auto; /* hidden !important; */
+    right: 0px; 
+    margin-top: -10px;
+    background-color: #DFDDC1; 
+    z-index: 2000; 
+    border: 1px solid black; 
+    display: block;
+    position: fixed;
+    height: 100%;
+}
+
+.legendContainer  {
+    width: 23px;
+    overflow: auto; /* hidden !important; */
+    right: 0px; 
+    margin-top: -10px;
+    background-color: #DFDDC1; 
+    z-index: 2000; 
+    border: 1px solid black; 
+    display: block;
+    position: fixed;
+    height: 100%;
+}
+
+
+.tocDiv {
+    position:absolute;
+    overflow: scroll; /*hidden !important; */
+    height: 435px;
+    width: 295px;
+    overflow-x: hidden;
+    z-index: 100000000;
+}
+
+.tocContainer
+{
+    right: 33px; 
+    top: 0px; 
+    margin-left: 3px;
+    position: absolute; 
+    z-index: 100000000; 
+    width: 295px;
+    height: 0px;
+    overflow: scroll; /* hidden !important; */
+    background-color: #EDF4DE;
+    border: 2px solid black;
+    display: none; 
+}
+
+.measureContainer
+{
+    left: 300px; 
+    top: 0px; 
+    margin-left: 3px;
+    position: absolute; 
+    z-index: 100000000; 
+    width: 295px;
+    height: 0px;
+    overflow: scroll; /* hidden !important; */
+    background-color: #EDF4DE;
+    border: 2px solid black;
+    display: none; 
+}
+
+.searchContainer  {
+    width: 100%;
+    overflow: auto; /* hidden !important; */
+    right: 0px; 
+    margin-top: -10px;
+    background-color: #DFDDC1; 
+    z-index: 2000; 
+    border: 1px solid black; 
+    display: block;
+    position: fixed;
+    height: 0px;
+}
+
+.dataDiv 
+{
+    width: 100%;
+    height: 100%;
+    display: none;
+    margin-top: 40px;
+    margin-left: 10px;
+    background-color: #E8E9D9;
+}
+
+.searchDialog {
+  border: 1px solid #000000;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  z-index: 100000000; 
+  width: 500px;
+  height: 500px;
+  background-color: #FFF;
+  display: block;
+}
+
+/* this is the titlebar for the Dashboard popup */
+.searchDialog .dijitDialogTitleBar {
+ 
+  border: 1px solid #ffffff;
+  border-top: none;
+  /*background-color: #4A624A; */
+  _background-image: none;
+  padding: 5px 7px 4px 7px;
+
+     background-color: #5A5A5A;
+    color: white;
+}
+
+/* this is the title text for the MWERS popup */
+.searchDialog .dijitDialogTitle {
+  
+  padding: 0 1px;
+  font-size: 1.5em;
+  /*color: #000; */
+   background-color: #023670; /*#5A5A5A;*/
+    color: white;
+}
+
+.loadingOverlay {
+    /* background:  #fff url('/js/dojo/1.6/dijit/themes/claro/images/loadingAnimation.gif') no-repeat 10px 23px; */
+    background:  #fff url('../Images/ajax-loader.gif') no-repeat 200px 150px;
+    position: absolute;
+    z-index: 1001;
+    display: none;
+    opacity: 0.85;
+}
+ 
+.pageOverlay {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+ 
+.loadingMessage {
+    padding: 25px 40px;
+    color: #000000;  /*#999; */
+}
+
+.loadingIntro {
+    padding: 25px 40px;
+    color: #000000;  /*#999; */
+    position: absolute;
+    z-index: 1001;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.loadingElements {
+    padding: 25px 40px;
+    color: #000000;  /*#999; */
+    position: absolute;
+    z-index: 1001;
+    margin-top: 130px;
+    margin-left: 50px;
+}
+
+
+
+.claro .dijitDialogTitleBar {
+    background-color: #023670; /* #ED6116; */
+    color: white;
+}
+
+
+.claro .dijitDialogUnderlay { background:#000; }
+
+.resultsLoading {
+    margin-left: 20px;
+    margin-top: 10px;
+    display: none;
+}

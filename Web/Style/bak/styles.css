@@ -1,0 +1,548 @@
+﻿ /* 
+#949090 is the background of the button colors when active
+
+
+*/
+		 
+html, body, #map {
+height: 100%;
+width: 100%;
+margin: 0;
+padding: 0;
+}
+
+
+
+---- 
+
+body {
+    /* background-color: #E1E1E1; D5E6B4   */
+    background-color: #EDF4DE;
+    overflow: scroll;
+    font-family: "Trebuchet MS";
+    position: relative;
+}
+
+#map {
+	position: absolute;
+}
+
+
+.ApplicationTitle 
+{
+    font-family: Arial, Century;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #5A5A5A;
+    background: -webkit-linear-gradient(#777, #0068B1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 6px;
+    top: 0px;
+}
+
+.PreApplicationTitle 
+{
+    color: #5A5A5A;
+    font-family: Arial, Century;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 6px;
+    top: 0px;
+}
+
+.button {
+	-webkit-transition: background-color 0.2s linear;
+	border-radius:4px;
+	-moz-border-radius: 4px 4px 4px 4px;
+	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+	background-color: #E4F2FF;
+	background-image: url("Images/identify_cursor.png");
+	background-position: center top;
+	background-repeat: repeat-x;
+	border: 1px solid #769DC0;
+	padding: 2px 8px 4px;
+	font-size:1em;
+	width: 16px;
+	height: 16px;
+}
+	  
+.toolDesc  
+{
+	text-align: center;
+	font-size: 12px;
+	color: #CCCCCC;
+	vertical-align: bottom;
+	bottom: 10px; 
+	position: absolute;
+	white-space: nowrap;
+	margin: 0px;
+}
+	  
+.areaIcon 
+{
+	background-image: url('./../Images/area.png');
+	width: 20px;
+	height: 20px;
+}
+	  
+.lineIcon 
+{
+	background-image: url('./../Images/distance.png');
+	width: 20px;
+	height: 20px;
+}
+	  
+.radiusIcon 
+{
+	background-image: url('./../Images/radius.png');
+	width: 16px;
+	height: 16px;
+}
+
+.clearIcon 
+{
+	background-image: url('./../Images/pencil.png');
+	width: 16px;
+	height: 16px;
+}	  
+.coordInfoIcon 
+{
+	background-image: url('./../Images/coordInfo_cursor.png');
+	width: 20px;
+	height: 20px;
+}
+	  
+.navPoint 
+{
+	background-image: url('./../Images/NavToPoint.png');
+	width: 18px;
+	height: 20px;
+	text-align: center;
+}
+.clipboardIcon 
+{
+	background-image: url('./../Images/page.png');
+	width: 20px;
+	height: 20px;
+	text-align: center;
+}
+.buttonText 
+{
+	font-size: 0.875em; 
+	color: #333333; 
+	font-weight:bold; 
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+a 
+{
+	text-decoration: none;
+	color: #333333;
+}
+a:hover 
+{
+	font-size: 1.0em;
+	font-style:italic;
+	color: #F51212;
+}
+	  
+div.transbox
+{
+    width:400px;
+    height:400px;
+    /* margin: 0px 0px 0px 0px;  */ /*100px 300px 100px 300px; */
+    right: 0px;
+    top: 45px;
+    background-color:#E1E1E1;
+    border:1px solid black;
+    opacity:0.6;
+    filter:alpha(opacity=60); /* For IE8 and earlier */
+    z-index: 500;
+    display: none;
+    position: absolute;
+}  
+
+.mainDlg
+{
+    width:800px;
+    height:500px;
+    /* margin: 0px 0px 0px 0px;  */ /*100px 300px 100px 300px; */
+    right: 0px;
+    top: 45px;
+    background-color:#E1E1E1;
+    border:1px solid black;
+    opacity:0.6;
+    filter:alpha(opacity=60); /* For IE8 and earlier */
+    z-index: 500;
+    display: none;
+    position: absolute;
+} 
+
+#dashboardDlg_underlay {
+    background-color:black;
+}
+
+/*
+.nihilo .dijitDialog {
+  border: 1px solid #759dc0;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+}
+*/
+
+/* this is the titlebar for the Dashboard popup */
+.dashboardMain .dijitDialogTitleBar {
+ 
+  border: 1px solid #ffffff;
+  border-top: none;
+  background-color: #05375D;
+  _background-image: none;
+  padding: 5px 7px 4px 7px;
+}
+
+/* this is the title text for thepopup */
+.dashboardMain .dijitDialogTitle {
+  
+  padding: 0 1px;
+  font-size: 1.5em;
+  color: #ffffff;
+}
+
+/* this is the titlebar for the SEARCH popup */
+.searchdMain .dijitDialogTitleBar {
+ 
+  border: 1px solid #ffffff;
+  border-top: none;
+  background-color: #70B244;
+  _background-image: none;
+  padding: 5px 7px 4px 7px;
+}
+
+/* this is the title text for the MWERS popup */
+.searchdMain .dijitDialogTitle {
+  
+  padding: 0 1px;
+  font-size: 1.5em;
+  color: #ffffff;
+}
+
+
+/* this is the style for the DataGrid headers */
+.dojoxGridHeader .dojoxGridCell {
+    vertical-align: bottom;
+    color: #000000;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.normalText 
+{
+    font-weight: 400;
+    font-size:  .65em;  
+    width: 100px;
+}
+
+.dashboardLabel 
+{
+    font-weight: 600;
+    font-size:  .85em;  
+    width: 100px;
+}
+
+.dashboardLabelSm 
+{
+    font-weight: 600;
+    font-size:  .75em;  
+    width: 100px;
+}
+
+/*Grid needs an explicit height by default*/
+#contactGrid {
+    height: 8em;
+}
+
+#selectedEquipGrid {
+    height: 8em;
+    width: 25em;
+}
+
+#selectedWarehouseGrid {
+    height: 8em;
+    width: 25em;
+}
+
+/* this is for the dojo buttons */
+#selectAllEquip { width:100px; }
+
+#clearAllEquip { width:100px; }
+
+#selectAllWarehouse { width:100px; }
+
+#clearAllWarehouse { width:100px; }
+
+.rightTop
+{
+    float:right;
+    right:0px;
+    top: 5px;
+    width:200px;
+}
+
+
+.ActiveToolbar 
+{
+    /* background: #D5E6B4; */
+    background: #4A624A;
+    border-left: 3px solid #4A624A;
+    border-bottom: 3px solid #4A624A;
+}
+
+.InactiveToolbar 
+{
+    /* background: #E1E1E1; */
+    background: #4A624A;
+    border-left: 1px solid #4A624A;
+    border-bottom: 1px solid #4A624A;
+}
+
+.InactiveToolbarSub 
+{
+    background: #CCCCCC;
+    border-left: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.InactiveToolbarSubDark 
+{
+    background: #969696;
+    border-left: 1px solid #969696;
+    border-bottom: 1px solid #969696;
+}
+
+.ActiveToolbarSubDark 
+{
+    background: #5A5A5A;
+    border-left: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+}
+
+.TOCButton 
+{
+    right: 110px;
+    top: 30px;
+    position: absolute;
+    z-index: 2001;
+    border: 1px solid #CCCCCC;
+}
+
+.ResultsRightButton 
+{
+    right: 80px;
+    top: 30px;
+    position: absolute;
+    border: 1px solid #CCCCCC;
+}
+
+.tocDivIE {
+    position:absolute; 
+    overflow:scroll; 
+    height: 435px;
+    width: 295px;
+    overflow-x: hidden;
+    z-index: 100000000;
+}
+
+.tocDiv {
+    position:absolute;
+    overflow: scroll; /*hidden !important; */
+    height: 435px;
+    width: 295px;
+    overflow-x: hidden;
+    z-index: 100000000;
+}
+
+.tocContainer
+{
+    right: 18px; 
+    top: 50px; 
+    margin-left: 3px;
+    position: absolute; 
+    z-index: 100000000; 
+    width: 295px;
+    height: 0px;
+    overflow: scroll; /* hidden !important; */
+    background-color: #EDF4DE;
+    border: 2px solid black;
+    display: none; 
+}
+
+.rightResults {
+    display:block;
+    overflow: auto; /* hidden !important; */
+    overflow-x: hidden;
+    /* background-color: #9BC1D9;  */
+}
+
+.resultsContainer  {
+    width: 0px;
+    overflow: auto; /* hidden !important; */
+    right: 0px; 
+    margin-top: 0px;
+    background-color: #D4D8D9; /* #EDF4DE; */
+    z-index: 1; 
+    border: 4px solid #296D9D; 
+    display: block;
+}
+
+.bufferPanel
+{
+    left: 70px;
+    margin-top: 52px;  
+    position: fixed; 
+    z-index: 6601; 
+    width: 240px;
+    height: 0px;
+    overflow: auto;
+    background-color: #FFFFFF;
+    min-height: 0px;
+    border: 2px solid black;
+    font-size: 11px;
+    display: none;
+}
+
+.whiteText {
+    color: #FFFFFF;
+    font-size: 12px;
+}
+
+#grid { height: 100%; }
+.dgrid { border: none; }
+.field-id { cursor: pointer; }
+   
+ /* i dunno about below */  
+ 
+/*    
+div[class="dijitTabListWrapper dijitTabContainerTopNone dijitAlignClient"]{
+  height: 30px !important;
+}
+
+@-moz-document url-prefix() {
+  div[class="dijitTabListWrapper dijitTabContainerTopNone dijitAlignClient"]{
+    height: 31px !important;
+  }
+}  
+*/  
+
+#gridDiv {
+    height: 20em;
+}
+    
+/*
+.tocPanel
+{
+    right: 25px; 
+    top: 0px; 
+    position:absolute; 
+    z-index: 201; 
+    width: 250px; 
+    height: 0px; 
+    background-color: #EDF4DE; 
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    display: none;
+    overflow: scroll;
+    overflow-y: scroll; 
+    min-height: 10px;
+}
+*/
+
+
+/* override the tree legend folder icons */
+.tundra .dijitTreeNode {
+  background-image : url('');
+}
+
+/* left vertical line (grid) for all nodes */
+.tundra .dijitTreeIsLast {
+  background: url('');
+}
+
+.tundra .dijitTreeExpandoLeaf {
+     background-image:url();
+}
+
+.treeCheckBox {
+		height: 14px;
+		margin: 0px;
+		padding: 0px;
+		border: 1px;
+		vertical-align: middle;
+	}
+
+.dijitLeaf {
+    background-image: url('../Images/bullet_green.png');  /* none !important; */
+    float: left;
+    margin-left: 1px;
+}
+
+.resultsText {
+    font-size: 13px;
+    font-weight: 400; 
+    margin-left: 5px;
+}
+
+.resultsTextBold {
+    font-size: 10px;
+    font-weight: bold;
+    background-color: #E1E1E1;
+}
+
+.dijitFolderClosed {
+    background-image: none !important;  
+}
+
+.dijitFolderOpened {
+    background-image: none !important;  
+}
+
+.nodeIcon {
+    background-image: url('../Images/pencil.png');   /* none !important; */
+}
+
+a.nodeZoom:link {
+    text-decoration: none;
+    color: #05375D;
+    font-size: 12px;
+}
+
+a.nodeZoom:visited {
+    text-decoration: none;  
+    color: #05375D;
+    font-size: 12px;
+}
+
+a.nodeZoom:hover {
+    text-decoration: underline; 
+    color: Red;
+    font-size: 12px;
+}
+
+a.nodeZoom:active {
+    text-decoration: underline;
+    color: #05375D;
+    font-size: 10px;
+}
+
+
+
+/* end tree legend override */

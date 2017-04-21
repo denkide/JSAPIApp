@@ -1,0 +1,250 @@
+﻿
+
+.infowindow {
+    position:absolute;
+}
+.infowindow .window {
+    position:absolute;
+    color:#CCCCCC;
+    font-family:verdana, sans-serif;
+}
+.infowindow .window .top .left {
+    width:15px;
+    overflow:hidden;
+    position:absolute;
+}
+.infowindow .window .top .left .sprite {
+    margin-top:0px;
+    margin-left:-987px;
+}
+.infowindow .window .top .right {
+    overflow:hidden;
+    position:absolute;
+    padding-right:5px;
+}
+.infowindow .window .top .right .sprite {
+    margin-top:0px;
+    position:absolute;
+}
+.infowindow .window .top .right .user {
+    position:absolute;
+    padding:7px 0px 0px 10px;
+}
+.infowindow .window .top .right .user .titlebar .hide {
+    position:absolute;
+    margin-top:5px;
+    width:12px;
+    height:8px;
+    overflow:hidden;
+}
+.infowindow .window .top .right .user .titlebar .hide .sprite {
+    margin-left:-752px;
+    margin-top:-900px;
+    cursor:pointer;
+    display:block;
+}
+.infowindow .window .top .right .user .titlebar .hide .sprite:hover {
+    margin-top:-908px;
+}
+.infowindow .window .top .right .user .titlebar .title {
+    font-weight:bold;
+    font-size:10pt;
+}
+.infowindow .window .top .right .user .border {
+    margin-top:5px;
+    font-size:0pt;
+    height:0px;
+    border-top:1px solid #000;
+    border-bottom:1px solid #fff;
+    opacity:0.25;
+    filter:alpha(opacity:25);
+}
+.infowindow .window .top .right .user .layout {
+    margin:5px 0px 0px 0px;
+    padding-right:5px;
+    overflow:auto;
+}
+.infowindow .window .top .right .user .content {
+    font-size:9pt;
+}
+.dj_ie .infowindow .window .top .right .user .content {
+    position: relative;
+}
+.infowindow .window .bottom .left {
+    width:15px;
+    height:10px;
+    overflow:hidden;
+    position:absolute;
+}
+.infowindow .window .bottom .left .sprite {
+    margin-top:-990px;
+    margin-left:-987px;
+}
+.infowindow .window .bottom .right {
+    height:10px;
+    overflow:hidden;
+    position:absolute;
+}
+.infowindow .window .bottom .right .sprite {
+    margin-top:-990px;
+    position:absolute;
+}
+.infowindow .pointer {
+    position:absolute;
+    width:53px;
+    height:44px;
+    overflow:hidden;
+}
+.infowindow .upperleft {
+    right:0px;
+    bottom:0px;
+}
+.infowindow .upperright {
+    left:0px;
+    bottom:0px;
+}
+.infowindow .lowerright {
+    left:0px;
+    top:0px;
+}
+.infowindow .lowerleft {
+    right:0px;
+    top:0px;
+}
+.infowindow .upperleft .sprite {
+    margin-left:-800px;
+    margin-top:-800px;
+}
+.infowindow .upperright .sprite {
+    margin-left:-902px;
+    margin-top:-800px;
+}
+.infowindow .lowerright .sprite {
+    margin-left:-902px;
+    margin-top:-924px;
+}
+.infowindow .lowerleft .sprite {
+    margin-left:-800px;
+    margin-top:-924px;
+}
+.infowindow .sprite {
+    width:1000px;
+    height:1000px;
+}
+.tundra .infowindow .sprite {
+    background-image:url("../dijit/images/tundra.infowindow.png");
+}
+.nihilo .infowindow .sprite {
+    background-image:url("../dijit/images/nihilo.infowindow.png");
+}
+.soria .infowindow .sprite {
+    background-image:url("../dijit/images/soria.infowindow.png");
+}
+.claro .infowindow .sprite {
+    background-image:url("../dijit/images/claro.infowindow.png");
+}
+.simpleInfoWindow {
+    position: absolute;
+    padding: 5px;
+    color: #666666;
+    background-color: #FFFFFF;
+    border: 1px solid #666666;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    font-size: small;
+    font-family: Arial Unicode MS, Arial, sans-serif;
+    -moz-box-shadow: 0 0 0.5em #BBBBBB;
+    -webkit-box-shadow: 0 0 0.5em #BBBBBB;
+}
+.simpleInfoWindow .title {
+    border-bottom: 1px solid #666666;
+    padding: 2px;
+}
+.simpleInfoWindow .content {
+    padding: 2px;
+    overflow: auto;
+}
+.dj_ie .simpleInfoWindow .content {
+    position: relative;
+}
+.simpleInfoWindow .close {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-image: url("../dijit/images/remove-24x24.png");
+    cursor: pointer;
+}
+.simpleInfoWindow .title.empty {
+    border-bottom: none;
+}
+
+
+/* 
+
+.simpleInfoWindow{
+  position: absolute;
+  z-index: 100;
+  border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; -o-border-radius: 5px;
+  -moz-box-shadow: 0 0 1em #26393D;
+  border: 2px solid #046380;
+  font-family: sans-serif;
+  font-size: 12px;
+  background-color:#000000;
+}
+
+.dj_ie .simpleInfoWindow{
+  border: 1px solid black;
+}
+
+.simpleInfoWindow.content {
+  position: relative;
+  background-color:#EFECCA;
+  color:#002F2F;
+  overflow: auto;
+  padding:2px 2px 2px 2px;
+}
+
+.simpleInfoWindow.close {
+  position: absolute; top: 0px; right: 0px;
+  cursor: pointer;
+  background: url(http://serverapi.arcgisonline.com/jsapi/arcgis/2.6/js/dojo/dijit/themes/claro/layout/images/tabClose.png) no-repeat scroll 0 0 transparent;
+  width: 12px; height: 12px;
+  margin: 3px 3px 0px 0px;
+}
+
+.simpleInfoWindow.close:hover, .simpleInfoWindow.toggleOpen:hover , .simpleInfoWindow.toggleClose:hover  {
+  background-color: #F7FCFF;
+}
+
+.simpleInfoWindow.toggleOpen {
+  position: absolute; top: 0px; right: 12px;
+  cursor: pointer;
+  background: url(http://serverapi.arcgisonline.com/jsapi/arcgis/2.6/js/dojo/dijit/themes/claro/form/images/buttonArrows.png);
+  background-position: -51px 53%;
+  background-repeat: no-repeat;
+  width: 15px; height: 15px;
+  margin: 3px 3px 0px 0px;
+}
+
+.simpleInfoWindow.toggleClose{
+  position: absolute; top: 0px; right: 12px;
+  cursor: pointer;
+  background: url(http://serverapi.arcgisonline.com/jsapi/arcgis/2.6/js/dojo/dijit/themes/claro/form/images/buttonArrows.png);
+  background-position: 0px 53%;
+  background-repeat: no-repeat;
+  width: 15px; height: 15px;
+  margin: 3px 3px 0px 0px;
+}
+
+
+.simpleInfoWindow.title {
+  font-weight: bold;
+  padding: 2px 2px 2px 2px;
+  background-color:#046380;
+  color:#E6E2AF;
+}
+
+
+*/
