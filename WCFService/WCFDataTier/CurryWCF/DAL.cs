@@ -16,16 +16,16 @@ namespace CurryWCF
         {
             try
             {
-                if (Database.Length < 1) throw new Exception("ElopsConnectionProps.ReturnODBCConnectionString :: Database is empty");
-                if (Instance.Length < 1) throw new Exception("ElopsConnectionProps.ReturnODBCConnectionString :: Instance is empty");
-                if (UserName.Length < 1) throw new Exception("ElopsConnectionProps.ReturnODBCConnectionString :: UserName is empty");
-                if (Password.Length < 1) throw new Exception("ElopsConnectionProps.ReturnODBCConnectionString :: Password is empty");
+                if (Database.Length < 1) throw new Exception("ConnectionProps.ReturnODBCConnectionString :: Database is empty");
+                if (Instance.Length < 1) throw new Exception("ConnectionProps.ReturnODBCConnectionString :: Instance is empty");
+                if (UserName.Length < 1) throw new Exception("ConnectionProps.ReturnODBCConnectionString :: UserName is empty");
+                if (Password.Length < 1) throw new Exception("ConnectionProps.ReturnODBCConnectionString :: Password is empty");
 
                 return String.Format("Server={0};Database={1};User Id={2};Password={3};", Instance, Database, UserName, Password);
             }
             catch (Exception ex)
             {
-                throw new Exception("Error connecting to GIS / Responder database --> " + ex.Message);
+                throw new Exception("Error connecting to GIS database --> " + ex.Message);
             }
         }
 
