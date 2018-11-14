@@ -6,25 +6,14 @@
     return declare(null, {
 
         doPrint: function() {
-
-            //console.log("In the print");
-            
             var printPlace = Dom.byId("PrintContainer");
-
-            //console.log("Search 1");
-
+          
             // instantiate the widget
             var print = new PrintWidget({
                 title: "Print a map",
             }, "PrintMap").placeAt(printPlace);
-
-            //console.log("Search 2");
-
-
+          
             if (global.PRINTDIALOG) global.PRINTDIALOG.destroy();
-
-            //console.log("Search 3");
-
 
             global.PRINTDIALOG = new Dialog({
                 content: print,
@@ -33,9 +22,9 @@
             });
 
             // call the startup function for the widget
+            print.doPrint();
+            global.PRINTDIALOG.show();
 
-            //console.log("before startup");
-            print.doPrint();            global.PRINTDIALOG.show();
         }
 
     });
