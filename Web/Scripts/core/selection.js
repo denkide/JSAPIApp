@@ -16,9 +16,7 @@
             constructor: function() {
 
             },
-
             doSelection: function() {
-
                 var util = new Util();
                 var resultsWidth = util.returnResultPanelWidth();
 
@@ -26,13 +24,9 @@
                     util.toggleResults(config, 'CLOSE');
 
                 //this.initSelection();
-
             },
 
             createTaxlotLayer: function() {
-
-                console.log("Create taxlot layer");
-
 
                 global.TAXLOTLAYER.clear();
                 global.MAP.graphics.clear();
@@ -51,8 +45,6 @@
                 dojo.connect(global.TAXLOTLAYER, "onSelectionComplete", lang.hitch(this, this.loadResults));
 
                 global.MAP.addLayer(global.TAXLOTLAYER);
-
-                //console.log("Create taxlot layer");
             },
 
             initSelection: function(geometry) {
@@ -62,15 +54,12 @@
                 var selectQuery = new esri.tasks.Query();
                 if (global.DRAWTOOLBAR) {
                     if (global.MAP.getScale() < 5800) {
-
-                        //console.log("Go do that query!!!  " + JSON.stringify(geometry));
                         selectQuery.geometry = geometry;
-                        //console.log("Go do that query 222!!!");
 
                         if (!global.TAXLOTLAYER) console.log("No Taxlots");
 
                         global.TAXLOTLAYER.selectFeatures(selectQuery, esri.layers.FeatureLayer.SELECTION_NEW);
-                        //console.log("after select");
+                    
                         dojo.style("ResultsLoading", "display", "block");
 
                     } else {
@@ -91,13 +80,8 @@
             },
 
             openResultsContainer: function() {
-
-                //console.log("Open results 1");
-
                 var util = new Util();
                 var resultsWidth = util.returnResultPanelWidth();
-
-                //console.log("Open results 2");
 
                 dojo.style(config.ResultsContainer, "display", "block");
                 dojo.style(config.DetailsContainer, "display", "none");
@@ -123,12 +107,8 @@
                 var featureExtent = esri.graphicsExtent(features);
                 global.MAP.setExtent(featureExtent);
 
-                //console.log("in load results");
-
                 this.drawend = null;
-
-                //console.log("Gimme the results");
-
+                    
                 var config = new Cfg();
                 //var util = new Util();
                 var data = new Data();
@@ -140,13 +120,9 @@
                 var iCount = 0;
                 var geom;
 
-                //console.log("Gimme the results 2");
                 this.openResultsContainer();
 
                 dojo.forEach(features, function(feature) {
-
-                    //console.log("xxxxx 1 ::: " + JSON.stringify(feature));
-
                     global.MAP.graphics.add(feature);
 
                     extent = feature.geometry.getExtent();
@@ -158,16 +134,10 @@
 
                     data.GetAssessmentByMapTaxLot(feature.attributes.MapTaxlot.replace('S', '').replace('W', '')).then(function(json) {
 
-                        //console.log('assessment details results follow');
-
                         if (json.length > 0) {
-
-                            //console.log('length is ' + json.length);
 
                             dojo.style("ResultsLoading", "display", "none");
                             for (var z = 0; z < json.length; z++) {
-
-                                //console.log('looping in the json');
 
                                 var propID = json[z]["PropertyId"];
                                 var maplot = json[z]["Maplot"];
