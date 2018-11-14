@@ -61,9 +61,6 @@
             },
 
             createTaxlotLayer: function() {
-
-                //console.log("Create taxlot layer");
-
                 var fieldsSelectionSymbol = new esri.symbol.SimpleFillSymbol().setColor(new dojo.Color([255, 0, 0, 0.8]));
                 fieldsSelectionSymbol.setOutline(new esri.symbol.SimpleLineSymbol("dashdot", new dojo.Color([255, 0, 0]), 2));
 
@@ -82,8 +79,6 @@
                 dojo.connect(global.TAXLOTLAYER, "onSelectionComplete", lang.hitch(this, this.loadResults));
 
                 global.MAP.addLayer(global.TAXLOTLAYER);
-
-                //console.log("Create taxlot layer");
             },
 
             createMapEvts: function() {
@@ -118,11 +113,7 @@
 
                 On(global.MAP, 'click', function(evt) {
 
-                    //console.log("Map click 1");
-
                     if (global.CURRENTMAPTOOL == TOOLBARITEM.IDENTIFY) {
-                        //console.log("map click == ID");
-
                         global.DRAWTOOLBAR.deactivate();
                         var id = new ID();
                         id.doIdentify(evt);
