@@ -222,11 +222,7 @@
                             break;
                         case config.ResultsToggleButton:
                             _this.cleanUpTools(config, util, _this);
-                            //if (util.returnLayerPanelHeight() > 10) {}
-                            //    _this.toggleLayers(config);
-
-                            //util.toggleResults(config);
-
+                        
                             if (util.returnResultPanelWidth() > 50) {
                                 util.toggleResults(config, 'CLOSE');
                             } else {
@@ -243,19 +239,15 @@
                             dojo.style(config.ToolbarSearchContainer, "background-color", "#E6EADF");
                             dojo.style(config.ToolbarLayersContainer, "background-color", "#BDC8AD");
 
-                            //alert("To do");
-
                             var search = new Search();
                             search.showSearch();
-
-
+                                    
                             break;
                         case config.ToolbarLayersContainer:
                             _this.cleanUpTools(config, util, _this);
                             if (util.returnResultPanelWidth() > 50)
                                 util.toggleResults(config, 'CLOSE');
-                            //_this.toggleResults(config,'CLOSE');
-
+                         
                             global.APPFUNCTION = FUNCTIONTOOLS.LAYERS;
                             dojo.style(config.ToolbarSearchContainer, "background-color", "#BDC8AD");
                             dojo.style(config.ToolbarLayersContainer, "background-color", "#E6EADF");
@@ -264,8 +256,7 @@
 
                             break;
                         case config.PrintObj:
-                            //alert("To do");
-
+                   
                             var print = new Print();
                             print.doPrint();
 
@@ -277,8 +268,6 @@
             },
 
             createMouseDownEvt: function(config, util, map, obj) {
-
-                //console.log("Mouse Down");
 
                 //-- ## mouse down
                 On(Dom.byId(obj), "mousedown", function() {
@@ -563,41 +552,24 @@
 
             clearGraphics: function(util) {
 
-                console.log("Clear 1");
-
                 var resultsWidth = util.returnResultPanelWidth();
                 util.clearResults();
 
-                console.log("Clear 2");
-
                 if (global.TAXLOTLAYER) global.TAXLOTLAYER.clear();
                 global.MAP.graphics.clear();
-                console.log("Clear 3");
-
-                //});
-                //if (resultsWidth > 50)
-                //    util.toggleResults(config);
-
+                
                 if (resultsWidth > 50)
                     util.toggleResults(config, 'CLOSE');
-
-                console.log("Clear 4");
 
                 //On(Dom.byId(config.ClearGraphicsObj), "mousedown", function () {
                 util.toggleImage(config.ClearGraphicsObj, config.ClearGraphicsImage, config.ClearGraphicsImageHover, false);
                 //});
-
-                console.log("Clear 5");
-
+                    
                 //On(Dom.byId(config.ClearGraphicsObj), "mouseup", function () {
                 util.toggleImage(config.ClearGraphicsObj, config.ClearGraphicsImage, config.ClearGraphicsImageHover, true);
                 //});
-
-                console.log("Clear 6");
-
+                    
                 if (global.MAP.infoWindow && global.MAP.infoWindow.isShowing) global.MAP.infoWindow.hide();
-
-                console.log("Clear 7");
             }
         });
     });
