@@ -122,15 +122,11 @@
 
             clearResults: function() {
 
-                //console.log("UIUtil::: Clear Results 1");
-
                 var config = new Cfg();
                 dojo.query(".resultsTable").forEach(dojo.destroy);
                 dojo.byId(config.ResultsContainer).innerHTML = "No Results<br />";
 
                 global.MAP.graphics.clear();
-
-                //console.log("Clear Results 2");
             },
 
             manageToolUI: function(config, labelObj) {
@@ -141,8 +137,7 @@
 
                 switch (global.CURRENTMAPTOOL) {
                     case TOOLBARITEM.PAN:
-                        //console.log("PAN");
-
+                       
                         Dom.byId(config.PanObj).setAttribute("src", config.ToolbarImagePath + config.PanImageActive);
                         Dom.byId(config.ZoominObj).setAttribute("src", config.ToolbarImagePath + config.ZoominImage);
                         Dom.byId(config.ZoomoutObj).setAttribute("src", config.ToolbarImagePath + config.ZoomoutImage);
@@ -154,8 +149,7 @@
 
                         break;
                     case TOOLBARITEM.ZOOMIN:
-                        //console.log("ZOOMIN");
-
+                        
                         Dom.byId(config.PanObj).setAttribute("src", config.ToolbarImagePath + config.PanImage);
                         Dom.byId(config.ZoominObj).setAttribute("src", config.ToolbarImagePath + config.ZoominImageActive);
                         Dom.byId(config.ZoomoutObj).setAttribute("src", config.ToolbarImagePath + config.ZoomoutImage);
@@ -167,8 +161,7 @@
 
                         break;
                     case TOOLBARITEM.ZOOMOUT:
-                        //console.log("ZOOMOUT");
-
+                        
                         Dom.byId(config.PanObj).setAttribute("src", config.ToolbarImagePath + config.PanImage);
                         Dom.byId(config.ZoominObj).setAttribute("src", config.ToolbarImagePath + config.ZoominImage);
                         Dom.byId(config.ZoomoutObj).setAttribute("src", config.ToolbarImagePath + config.ZoomoutImageActive);
@@ -180,8 +173,7 @@
 
                         break;
                     case TOOLBARITEM.IDENTIFY:
-                        //console.log("IDENTIFY");
-
+                        
                         Dom.byId(config.PanObj).setAttribute("src", config.ToolbarImagePath + config.PanImage);
                         Dom.byId(config.ZoominObj).setAttribute("src", config.ToolbarImagePath + config.ZoominImage);
                         Dom.byId(config.ZoomoutObj).setAttribute("src", config.ToolbarImagePath + config.ZoomoutImage);
@@ -191,7 +183,6 @@
                         Dom.byId(config.SingleTaxlotSelectObj).setAttribute("src", config.ToolbarImagePath + config.SingleTaxlotSelectImage);
                         global.DRAWTOOLBAR.deactivate();
 
-                        //alert("To do");
                         break;
                     case TOOLBARITEM.MEASURELINE:
                         Dom.byId(config.PanObj).setAttribute("src", config.ToolbarImagePath + config.PanImage);
@@ -223,16 +214,12 @@
                         Dom.byId(config.MultiTaxlotSelectObj).setAttribute("src", config.ToolbarImagePath + config.MultiTaxlotSelectImageActive);
                         Dom.byId(config.SingleTaxlotSelectObj).setAttribute("src", config.ToolbarImagePath + config.SingleTaxlotSelectImage);
 
-                        //console.log("Doing the multiselect:: manageUI");
-
                         break;
                     default:
                         this.toggleClass(SingleSelectionContainer, 'activeTool', 'inactiveToolSub', true);
                         this.toggleClass(MultipleSelectionContainer, 'activeTool', 'inactiveToolSub', true);
                         global.DRAWTOOLBAR.deactivate();
-                        //this.toggleClass(tdBuffer, 'activeTool', 'inactiveToolSub', true);
-
-                        //obj.setAttribute("src", config.ToolbarImagePath + config.PanImageActive);
+                       
                 }
             },
 
@@ -252,26 +239,19 @@
             },
 
             toggleResults: function(config, action) {
-                //console.log("Toggle results 1");
-
+               
                 var w = this.returnResultPanelWidth();
                 var toggleButton = Dom.byId(config.ResultsToggleButton);
                 var panel = Dom.byId(config.ResultPanel);
 
-                //console.log("Toggle results 2");
-
                 if (action == 'OPEN') {
-                    //console.log("Toggle results 3");
 
                     this.togglePanelWidth(300, PANELTOGGLE.EXPAND, config.ResultPanel, config.ResultsContainer);
                     toggleButton.setAttribute("src", "images/" + config.ResultsToggleButtonClose);
                     dojo.style("ResultsContainer", "display", "block");
                     dojo.style("DetailsContainer", "display", "none");
-
-                    //console.log("Toggle results 3 - 2");
                 } else {
-                    //console.log("Toggle results 4");
-
+                 
                     this.togglePanelWidth(300, PANELTOGGLE.RETRACT, config.ResultPanel, config.ResultsContainer);
                     toggleButton.setAttribute("src", "images/" + config.ResultsToggleButtonOpen);
                     dojo.style("ResultsContainer", "display", "none");
