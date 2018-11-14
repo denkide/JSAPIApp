@@ -73,19 +73,16 @@
             test: function() { alert("Test"); },
 
             postCreate: function() {
-                //console.log("1");
-
                 this.inherited(arguments);
-                //console.log("2");
+                    
                 this.selectionSymbol = new esri.symbol.SimpleFillSymbol().setColor(new dojo.Color([255, 0, 0, 0.8]));
                 this.selectionSymbol.setOutline(new esri.symbol.SimpleLineSymbol("dashdot", new dojo.Color([255, 0, 0]), 2));
-                //console.log("3");
+                
                 this.createGeocoder("ADDRESS");
                 dojo.connect(this.chkName, 'click', this, function() { this.createGeocoder("NAME"); });
                 dojo.connect(this.chkMaplot, 'click', this, function() { this.createGeocoder("MAPLOT"); });
                 dojo.connect(this.chkAddress, 'click', this, function() { this.createGeocoder("ADDRESS"); });
-                //console.log("4");
-
+                
                 global.OWNERCANDIDATES = [];
             },
 
@@ -104,8 +101,6 @@
             // -------------------------------------------------------------------------------------
             //
             showResults: function(evt) {
-
-                //console.log("Height: " + global.MAP.visible);
 
                 global.MAP.graphics.clear();
                 var point = evt.result.feature.geometry;
@@ -134,12 +129,8 @@
                     global.MAP.graphics.add(firstGraphic);
                     global.MAP.setExtent(graphicsUtils.graphicsExtent(evt.featureSet.features).expand(4));
 
-
-                    //console.log("Before sending to selection  --> " + JSON.stringify(evt));
                     var selection = new Selection();
                     selection.loadResults(evt.featureSet.features); //?? could be just evt or evt.featureSet ... not sure
-
-                    //console.log("After sending to selection");
 
                 });
 
@@ -153,7 +144,6 @@
             },
 
             filterResults: function(results, gc) {
-                //console.log("Filter Results");
                 var length = results.results.length;
                 var testArray = [];
                 var ownerName = "";
@@ -179,16 +169,12 @@
             },
 
             getNameResults: function(evt) {
-                //console.log("Start Name Results");
-                //console.log("This was selected: " + evt.result.feature.attributes["Match_addr"]);
                 if (!global.OWNERCANDIDATES) console.log("There is no candidate array");
-
 
                 var selectedAddr = evt.result.feature.attributes["Match_addr"];
                 var maplots = "";
 
                 for (var i = 0; i < global.OWNERCANDIDATES.length; i++) {
-                    //console.log("Looping through the candidates");
                     var a = global.OWNERCANDIDATES[i].split("|");
                     if (a[0].toUpperCase() == selectedAddr.toUpperCase()) {
                         if (maplots.length == 0)
@@ -208,8 +194,7 @@
             createGeocoder: function(gcType) {
 
                 esriConfig.defaults.geometryService = "http://xxxx/arcgis/rest/services/Utilities/Geometry/GeometryServer";
-                //alert("This: " + this.searchWidgetContainer.innerHtml);
-
+                
                 var searchUrl, searchCaption, searchExample;
                 switch (gcType) {
                     case "NAME":
