@@ -150,48 +150,6 @@ namespace CurryWCF
         //    }
         //    return ds;
         //}
-
-        //public PropertyCode ReturnCodeInfo(string propertyId)
-        //{
-
-        //    return null;
-        //}
-
-        //public List<DeedHistory> ReturnDeedHistory(string propertyId)
-        //{
-
-        //    return null;
-        //}
-
-        //public List<OwnerHistory> ReturnOwnerHistory(string propertyId)
-        //{
-
-        //    return null;
-        //}
-
-        //public List<Owner> ReturnOwnerInfo(string propertyId)
-        //{
-
-        //    return null;
-        //}
-
-        //public List<Sales> ReturnSalesInfo(string maplot)
-        //{
-
-        //    return null;
-        //}
-
-        //public Situs ReturnSitusInfo(string propertyId)
-        //{
-
-        //    return null;
-        //}
-
-        //public TaxDue ReturnTaxInfo(string propertyId)
-        //{
-
-        //    return null;
-        //}
     }
 }
 
