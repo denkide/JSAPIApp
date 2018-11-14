@@ -9,12 +9,8 @@
 
             //http://stackoverflow.com/questions/13215705/pass-info-from-one-dojo-amd-module-to-another
 
-
             GetAssessmentByMapTaxLot: function (mapTaxLot) {
                 var config = new Cfg();
-
-                //console.log(config.DataService + "ReturnAssessmentInfoByMapTaxlot?mapTaxLot=" + mapTaxLot);
-
                  return dojo.xhrGet({
                     url: config.DataService + "ReturnAssessmentInfoByMapTaxlot?mapTaxLot=" + mapTaxLot,
                     handleAs: "json",
