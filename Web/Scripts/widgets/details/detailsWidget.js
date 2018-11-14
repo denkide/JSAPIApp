@@ -22,8 +22,7 @@
         baseClass: "someWidget",
 
         _resultsBackClick: function() {
-            //alert("go back");
-
+           
             Query(".resultsTable").forEach(function(node) {}).style("display", "block");
 
             dojo.style("ResultsContainer", "display", "block");
@@ -31,7 +30,6 @@
         },
 
         _resultsBackMouseOver: function(e) {
-            //alert("Over");
             domClass.toggle(this.backBtn, "backButton");
         },
         _resultsBackMouseOut: function(e) {
@@ -47,17 +45,13 @@
         },
 
         postCreate: function() {
-            //alert("Weeee");
+            
         },
 
         doInitialRequest: function(accountNum) {
 
-            //console.log("Intial Request :: Account::: " + accountNum);
-
             var config = new Config();
             var data = new Data();
-
-            //console.log("Intial Request :: A");
 
             // assessment by PropertyID
             data.GetAssessmentInfoByPropID(accountNum).then(function(json) {
@@ -144,8 +138,6 @@
                     output += "</table>";
 
                     deedContainer.innerHTML = output;
-
-
 
                 } else { dojo.style(deedContainer, "display", "none"); }
             });
